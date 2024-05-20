@@ -1,0 +1,17 @@
+version: 2
+
+
+# TODO: ADD TESTS!!!
+
+
+models:
+  - name: top_stores_per_trans_amt
+    description: 
+      Top 10 stores per transacted amount
+
+
+  - name: top_products_sold
+    description: 
+      Top 10 products sold
+
+
