@@ -12,9 +12,6 @@ sources:
 
 
 
-
-
-
 # TODO: once you have finished doing the models, add tests to the source models/tables!
 # you can use as example the tests from the original boilerplate code from the example models from dbt
 # like below:
