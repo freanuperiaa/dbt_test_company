@@ -1,0 +1,42 @@
+version: 2
+
+sources:
+  - name: staging
+    database: test_company_db
+    schema: dbo
+
+    tables:
+      - name: device
+      - name: store
+      - name: transaction
+
+
+
+
+
+
+# TODO: once you have finished doing the models, add tests to the source models/tables!
+# you can use as example the tests from the original boilerplate code from the example models from dbt
+# like below:
+
+# version: 2
+# 
+# models:
+#   - name: my_first_dbt_model
+#     description: "A starter dbt model"
+#     columns:
+#       - name: id
+#         description: "The primary key for this table"
+#         data_tests:
+#           - unique
+#           - not_null
+
+
+
+
+
+
+
+
+
+
