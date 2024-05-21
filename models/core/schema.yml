@@ -14,4 +14,7 @@ models:
     description: 
       Top 10 products sold
 
+  - name: avg_trans_amt_per_store
+    description: Average transacted amount per store typology and country
+
 
