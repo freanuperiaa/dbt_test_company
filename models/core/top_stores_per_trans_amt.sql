@@ -22,7 +22,13 @@ devices AS (
 ),
 
 total_trans_amt_by_device AS (
-SELECT device_id, total_trans_amount FROM {{ ref("trans_amt_by_device") }}
+SELECT 
+    device_id
+    ,total_trans_amount 
+    ,ROW_NUMBER() OVER(ORDER BY total_trans_amount DESC) AS row_num -- top 10
+FROM 
+    {{ ref("trans_amt_by_device") }}
+
 )
 
 SELECT
@@ -36,6 +42,10 @@ FROM
     LEFT JOIN stores C 
     -- NOTE: not sure if I have to have the store name for this model. but If it were me, I would normalize fact tables, hence I would just simply remove the store names, removing the need to join the stores table.
         ON B.store_id = C.id
+
+WHERE
+    A.row_num <= 10
+    
 
 ORDER BY A.total_trans_amount DESC
 
