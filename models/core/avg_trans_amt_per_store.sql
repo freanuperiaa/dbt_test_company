@@ -9,11 +9,7 @@
 -- well look into ^that probably later
 
 
-WITH transactions AS (
-    SELECT * FROM {{ ref('stg_staging__transaction') }}
-),
-
-stores AS (
+WITH stores AS (
     SELECT *FROM {{ ref("stg_staging__store") }}
 ),
 
