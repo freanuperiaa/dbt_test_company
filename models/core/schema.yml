@@ -14,4 +14,13 @@ models:
     description: 
       Top 10 products sold
 
+  - name: avg_trans_amt_per_store
+    description: Average transacted amount per store typology and country
+
+  - name: trans_per_device_type
+    description: Percentage of transactions per device type
+
+  - name: avg_trans_time_per_store
+    description: Average time for a store to perform its 5 first transactions
+
 
