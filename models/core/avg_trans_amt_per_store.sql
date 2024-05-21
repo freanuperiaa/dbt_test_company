@@ -24,7 +24,7 @@ total_trans_amt_by_device AS (
 SELECT
     C.typology AS typology 
     ,C.country AS country
-    ,SUM(A.avg_trans_amount) AS avg_amount
+    ,AVG(A.avg_trans_amount) AS avg_amount
 
 FROM
     total_trans_amt_by_device A LEFT JOIN devices B
