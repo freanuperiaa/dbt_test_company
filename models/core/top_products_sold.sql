@@ -12,6 +12,9 @@ WITH transaction AS (
     SELECT * FROM {{ ref('stg_staging__transaction') }}
 ),
 
+-- we can probably just use ROW_NUMBER() and
+-- filter ROW_NUMBER() res <=10
+-- and order by row number?
 transactions_per_item AS (
     SELECT 
         product_sku
