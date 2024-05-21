@@ -22,12 +22,7 @@ devices AS (
 ),
 
 total_trans_amt_by_device AS (
-    SELECT 
-        device_id, SUM(amount) AS total_trans_amount
-    FROM 
-        transactions
-    GROUP BY
-        device_id
+SELECT device_id, total_trans_amount FROM {{ ref("trans_amt_by_device") }}
 )
 
 SELECT
