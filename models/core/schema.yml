@@ -20,4 +20,7 @@ models:
   - name: trans_per_device_type
     description: Percentage of transactions per device type
 
+  - name: avg_trans_time_per_store
+    description: Average time for a store to perform its 5 first transactions
+
 
