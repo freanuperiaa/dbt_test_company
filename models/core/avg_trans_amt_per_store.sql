@@ -22,6 +22,7 @@ devices AS (
 ),
 
 -- TODO: maybe we could create a model for this, to be used on top_stores_per_trans_amt and this model. it can have SUM(amount) and AVG(amount) on the columns
+-- we cant have per transaction as it wont scale well
 total_trans_amt_by_device AS (
     SELECT 
         device_id, AVG(amount) AS avg_trans_amount
