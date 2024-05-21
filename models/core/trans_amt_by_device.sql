@@ -6,7 +6,7 @@
 
 WITH transactions AS (
     SELECT * FROM {{ ref('stg_staging__transaction') }}
-),
+)
 
 
 SELECT 
