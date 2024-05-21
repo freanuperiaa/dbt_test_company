@@ -12,19 +12,27 @@ WITH transaction AS (
     SELECT * FROM {{ ref('stg_staging__transaction') }}
 ),
 
--- we can probably just use ROW_NUMBER() and
--- filter ROW_NUMBER() res <=10
--- and order by row number?
+
 transactions_per_item AS (
     SELECT 
         product_sku
-        ,count(1) as num_transactions
+        ,COUNT(1) as num_transactions
+        -- ,ROW_NUMBER() OVER(PARTITION BY B.store_id ORDER BY A.happened_at) AS row_num
+        ,ROW_NUMBER() OVER(ORDER BY COUNT(1)) AS row_num
     FROM 
         transaction
     GROUP BY
         product_sku
     ORDER BY
-        num_transactions DESC
+        row_num
 )
 
-SELECT * FROM transactions_per_item LIMIT 10
+SELECT 
+    product_sku
+    ,num_transactions 
+
+FROM 
+    transactions_per_item
+
+WHERE 
+    row_num <= 10
