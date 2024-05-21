@@ -35,3 +35,5 @@ FROM
 
 WHERE 
     row_num <= 10
+
+ORDER BY num_transactions DESC
