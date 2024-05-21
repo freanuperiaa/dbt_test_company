@@ -17,7 +17,6 @@ transactions_per_item AS (
     SELECT 
         product_sku
         ,COUNT(1) as num_transactions
-        -- ,ROW_NUMBER() OVER(PARTITION BY B.store_id ORDER BY A.happened_at) AS row_num
         ,ROW_NUMBER() OVER(ORDER BY COUNT(1)) AS row_num
     FROM 
         transaction
